@@ -61,6 +61,7 @@ docker images
 
 docker tag ubuntu:19.10 prod:older --> tag the images by your own name
 docker tag centos:centos7 dev:older 
+docker run -itd --name=c1 prod:older
 
 trying to remove the images and containers
 
