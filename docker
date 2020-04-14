@@ -71,3 +71,7 @@ docker rm <CID> --> to remove the container
 docker rmi <ImgId> --> to remove the images
 
 docker rmi -f <ID> --> to remove fource
+
+docker system df --> to check disk free 
+docker inspect --> to get the informations in-details
+/var/lib/docker --> default path of docker
