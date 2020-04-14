@@ -48,3 +48,25 @@ docker system prune --> will help to clean up the stopped container on docker ps
 docker logs vm6 --> help to check the logs
 docker stop vm6 vm5 vm4 vm3 --> stop multipal containers
 
+https://hub.docker.com/ --> Docker images link
+docker images --> to list all the images
+docker pull ubuntu:19.10
+docker pull centos:centos7
+docker images
+docker run -itd --name=ub1 ubuntu:19.10
+docker ps
+docker run -itd --name=c1 centos:centos7
+docker ps
+docker images
+
+docker tag ubuntu:19.10 prod:older --> tag the images by your own name
+docker tag centos:centos7 dev:older 
+
+trying to remove the images and containers
+
+make sure your stopped all the CID's
+
+docker rm <CID> --> to remove the container
+docker rmi <ImgId> --> to remove the images
+
+docker rmi -f <ID> --> to remove fource
