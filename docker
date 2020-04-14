@@ -41,3 +41,10 @@ docker run -itd --name=centos1 centos --> create Cid name
 
 docker ps --> check the Cid name 
 
+docker stats <CID> --> to check cpu usage
+docker top <CID> --> to check process inside container 
+docker kill <CID> --> will kill the container fource
+docker system prune --> will help to clean up the stopped container on docker ps -a
+docker logs vm6 --> help to check the logs
+docker stop vm6 vm5 vm4 vm3 --> stop multipal containers
+
