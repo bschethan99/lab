@@ -182,3 +182,24 @@ docker exec -it nw3 /bin/bash --> go inside a nw3 container and try pinging to n
 
 docker inspect nw4 --> to check the information 
 docker inspect nw1 --> check the difference
+
+=========== Docker storage =========
+
+docker volume ls ---> to list 
+docker volume create datvol ---> create new volume
+docker volume ls
+
+cd /var/lib/docker/volumes/datvol/_data/   --> default path of data vol
+pwd
+
+cat > index.html
+<h1> testing from vol </h2>
+
+docker run -itd --rm --name=vol1 --volume datvol:/var/www/html -p 80:80 img:v1 ---> run the docker using datvol and mount to /var/www/html
+
+docker exec -it vol1 /bin/bash   -->  check the vol is present with data
+
+cd /var/www/html/ 
+ls -l   
+
+exit
