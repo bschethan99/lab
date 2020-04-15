@@ -164,3 +164,21 @@ docker run -itd --name:web1 --rm -p 80:80 img:v1  --> run the container
 docker ps --> check the container is present without any issues 
 
 browse the IP to check the application is working on it
+
+========== Docker network ===========
+docker network ls   --> to list the networks
+docker run -itd --name=nw1 centos   --> create nw1 
+docker run -itd --name=nw2 centos --- > create nw2
+docker ps -a
+docker exec -it nw1 /bin/bash --> go inside a nw1 container and try pinging to nw2 by name and ID
+
+docker network create --subnet 192.168.10.0/24 appnet   --> create a docker network by your own subnet 
+docker network ls --> check the network list
+docker run -itd --name=nw3 --net appnet centos ---> create container using network appnet
+docker run -itd --name=nw4 --net appnet centos 
+
+docker ps -a
+docker exec -it nw3 /bin/bash --> go inside a nw3 container and try pinging to nw4 by name and ID
+
+docker inspect nw4 --> to check the information 
+docker inspect nw1 --> check the difference
