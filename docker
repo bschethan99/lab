@@ -102,6 +102,6 @@ docker ps --> check the status of the port and it should be always 8080
 
 try to access the port from web browser with the port number 8080 using phycial server IP ex: 192.168.56.115:8080
 
-docker stop app1 --> stop the container and check application will go down
-docker start app1 --> to access again from brower using same port number 8080
+docker stop app2 --> stop the container and check application will go down
+docker start app2 --> to access again from brower using same port number 8080
 
