@@ -140,3 +140,4 @@ clean up all the images and containers and try to pull from your own repo
 
 docker run -itd --rm --name=web1 -p 80:80 bschethan99/cenosimg:v1  sh -c "/usr/sbin/httpd -D FOREGROUND" --> rerun the docker from your own repo
 
+check in browser application works fine with port 80
