@@ -105,3 +105,23 @@ try to access the port from web browser with the port number 8080 using phycial 
 docker stop app2 --> stop the container and check application will go down
 docker start app2 --> to access again from brower using same port number 8080
 
+
+========= creating custom image ========
+
+docker run -itd --rm --name=c1 centos --> run the container using --rm and use main core image 
+docker exec -it c1 /bin/bash --> going inside a container to edit as per need and installaction
+mkdir chethan --> your inside
+yum install httpd -y
+cd /var/www/html/
+cat > index.html
+<h1> Welcome to C1 host </h1> 
+press Ctrl C 
+
+docker commit c1 cenosimg:v1 ----> creating a custom image name from c1
+docker images --> check the images
+docker stop c1 --> stop container
+docker ps -a --> check the process
+docker run -itd --rm --name=c1 cenosimg:v1 ---> start back from your custom image name
+docker ps -a
+docker exec -it c1 /bin/bash --> check all the files are avaliable as we created 
+
