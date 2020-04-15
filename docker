@@ -75,3 +75,33 @@ docker rmi -f <ID> --> to remove fource
 docker system df --> to check disk free 
 docker inspect --> to get the informations in-details
 /var/lib/docker --> default path of docker
+
+
+============================
+
+docker pull httpd --> pull an apache image from docker hub
+docker images --> check image is avaliable
+docker run -itd --name=app1 httpd ---> run a container and check the tcp port
+docker ps --> default port should show as tcp:80 where application port is 
+docker run -itd --name=app2 -P httpd 
+docker ps --> check the port number which is automaticaly mapped 
+
+netstat -ntpl --> check and verify in phycial server port as been mapped to docker proxy
+
+try to access the port from web browser with the port numberusing phycial server IP ex: 192.168.56.115:32768
+
+docker stop app1 --> stop the container and check application will go down
+
+docker start app1 --> to to access again from brower
+
+docker ps --> here it will automaticall map to new port since we user -P at the docker run time
+
+docker run -itd --name=app2 -p 8080:80 httpd --> start container using small "p" where it always map the port to 8080
+
+docker ps --> check the status of the port and it should be always 8080 
+
+try to access the port from web browser with the port number 8080 using phycial server IP ex: 192.168.56.115:8080
+
+docker stop app1 --> stop the container and check application will go down
+docker start app1 --> to access again from brower using same port number 8080
+
