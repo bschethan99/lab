@@ -203,3 +203,5 @@ cd /var/www/html/
 ls -l   
 
 exit
+
+docker run -itd --rm --name=vol2 --volume $PWD:/var/www/html -p 8080:80 img:v1 --> goinside the container and check the /var/www/html
