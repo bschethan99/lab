@@ -21,7 +21,7 @@ PasswordAuthentication no ---> change it to yes
 ec2-user@192.168.56.116's password:
 node1
 
-vim /etc/sudoers 
+vi /etc/sudoers 
 %wheel  ALL=(ALL)       NOPASSWD: ALL --> on all the servers make sure NOPASSWD is allowed
 
 usermod -g wheel ec2-user --> run on all the servers 
