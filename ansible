@@ -25,3 +25,5 @@ vim /etc/sudoers
 %wheel  ALL=(ALL)       NOPASSWD: ALL --> on all the servers make sure NOPASSWD is allowed
 
 usermod -g wheel ec2-user --> run on all the servers 
+
+ansible localhost -m ping  --> test the connection 
