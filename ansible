@@ -138,4 +138,35 @@ ansible-playbook demo.yaml --syntax-check   ----> check the syntax before run
 -rw-r--r--. 1 root root 7 Apr 16 15:22 /tmp/data22
 
 
+============ httpd ===========
+---
+- name: Test playbook
+  hosts: all
+  become: yes
+  become_method: sudo
+  become_user: root
+
+  tasks:
+
+  - name: installing the httpd packages
+    yum:
+      name: httpd
+      state: present
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: copy data
+    copy:
+      content: Apache page
+      dest: /var/www/html/index.html
+
+...
+
+
+
+
 
