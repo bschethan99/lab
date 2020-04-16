@@ -175,4 +175,6 @@ try state: absent  ---> then check the httpd service status on node1
 
 
 
+ansible all -m shell -a "hostname" --user ec2-user --ask-pass -i MyInv   ---> your own inventory file path  
+
 
