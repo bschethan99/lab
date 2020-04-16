@@ -168,5 +168,11 @@ ansible-playbook demo.yaml --syntax-check   ----> check the syntax before run
 
 
 
+systemctl status httpd  ---> check the httpd status on node1
+check in brower the node1 IP should appach enabled and display the page
+
+try state: absent  ---> then check the httpd service status on node1
+
+
 
 
