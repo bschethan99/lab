@@ -32,3 +32,8 @@ ansible --version ---> check the version
 
 ansible localhost -m ping  --> test the connection 
 
+
+
+sudo vi /etc/ansible/hosts --> add node1 and node2 IP's in hosts file
+
+ansible all -m ping --user ec2-user --ask-pass    ---> check the client connection 
