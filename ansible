@@ -113,3 +113,29 @@ ansible all -m copy -a "content=testing dest=/tmp/data owner=admin group=wheel" 
 [root@node1 ~]#
 
 
+=========== playbook ============
+
+cat > demo.yaml      -----------> create a playbooy
+---
+- name: Test playbook
+  hosts: all
+  become: yes
+  become_method: sudo
+  become_user: root
+
+  tasks:
+  - name: copy data
+    copy: content=testing dest=/tmp/data22
+
+...
+
+
+ansible-playbook demo.yaml --syntax-check   ----> check the syntax before run
+
+ ansible-playbook demo.yaml --user ec2-user --ask-pass  ------> run the playbook
+ 
+ [root@node1 ~]# ls -l /tmp/data22                ---------> check the file state from node1
+-rw-r--r--. 1 root root 7 Apr 16 15:22 /tmp/data22
+
+
+
