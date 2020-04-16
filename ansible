@@ -9,7 +9,7 @@ bash
 root# sudo passwd ec2-user --> set username and password ---> nod1
 root# sudo passwd root  ---> set username and password for roor ---> nod1
 
-vi /etc/ssh/sshd_config  ---> open this file
+vi /etc/ssh/sshd_config  ---> open this file node1
 
 PasswordAuthentication no ---> change it to yes
 
