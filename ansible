@@ -6,7 +6,11 @@ hostnamectl set-hostname node2 ---> on client2 box if present
 bash
 
 
-[root@master ~]# ssh <node1 IP> "hostname" ---> test the SSH connection 
+passwd ec2-user --> set username and password
+passwd root  ---> set username and password for roor
+
+
+[root@master ~]# ssh ec2-user@192.168.56.116 "hostname" ---> test the SSH connection 
 root@192.168.56.116's password:
 node1
 
@@ -20,7 +24,7 @@ vi PasswordAuthentication yes  /etc/ssh/sshd_config
  
  systemctl reload sshd
  
- [root@master ~]# ssh <node1 IP> "hostname" ---> test the SSH connection  again
+ [root@master ~]# ssh ec2-user@192.168.56.116 "hostname" ---> test the SSH connection  again
 root@192.168.56.116's password:
 node1
  
