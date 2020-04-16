@@ -37,3 +37,23 @@ ansible localhost -m ping  --> test the connection
 sudo vi /etc/ansible/hosts --> add node1 and node2 IP's in hosts file
 
 ansible all -m ping --user ec2-user --ask-pass    ---> check the client connection 
+
+
+========== Ip's/hosts and groups ============
+
+ansible 192.168.56.117,192.168.56.119 -m ping --user ec2-user --ask-pass  ---> pass selected hostnames not all from the inventory
+
+sudo vi /etc/ansible/hosts  --> create a group in inventory file 
+[web]
+192.168.56.116
+
+[db]
+192.168.56.117
+192.168.56.118
+
+[backup]
+192.168.56.119
+
+ansible web  -m ping --user ec2-user --ask-pass               ---> web group
+ansible db  -m ping --user ec2-user --ask-pass                ---> db group
+ansible backup  -m ping --user ec2-user --ask-pass	          ---> backup group
