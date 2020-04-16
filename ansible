@@ -1,0 +1,27 @@
+hostnamectl set-hostname master  ---> on master box
+bash
+hostnamectl set-hostname node1 ---> on client box
+bash
+hostnamectl set-hostname node2 ---> on client2 box if present
+bash
+
+
+[root@master ~]# ssh <node1 IP> "hostname" ---> test the SSH connection 
+root@192.168.56.116's password:
+node1
+
+
+if above command is failed follow below 
+
+vi /etc/ssh/ssh_config ---> PasswordAuthentication yes  ( change if from no to yes )
+
+vi PasswordAuthentication yes  /etc/ssh/sshd_config
+ and PermitRootLogin yes
+ 
+ systemctl reload sshd
+ 
+ [root@master ~]# ssh <node1 IP> "hostname" ---> test the SSH connection  again
+root@192.168.56.116's password:
+node1
+ 
+
