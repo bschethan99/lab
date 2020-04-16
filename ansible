@@ -1,31 +1,22 @@
-hostnamectl set-hostname master  ---> on master box
+sudo hostnamectl set-hostname master  ---> on master box
 bash
-hostnamectl set-hostname node1 ---> on client box
+sudo hostnamectl set-hostname node1 ---> on client box
 bash
-hostnamectl set-hostname node2 ---> on client2 box if present
+sudo hostnamectl set-hostname node2 ---> on client2 box if present
 bash
 
 
-passwd ec2-user --> set username and password
-passwd root  ---> set username and password for roor
+root# sudo passwd ec2-user --> set username and password ---> nod1
+root# sudo passwd root  ---> set username and password for roor ---> nod1
 
+vi /etc/ssh/sshd_config  ---> open this file
 
-[root@master ~]# ssh ec2-user@192.168.56.116 "hostname" ---> test the SSH connection 
-root@192.168.56.116's password:
+PasswordAuthentication no ---> change it to yes
+
+:wq --> save and exit
+
+ systemctl reload sshd --> reload form node1
+
+[root@master ~]# ssh ec2-user@nod1IP "hostname" ---> test the SSH connection 
+ec2-user@192.168.56.116's password:
 node1
-
-
-if above command is failed follow below 
-
-vi /etc/ssh/ssh_config ---> PasswordAuthentication yes  ( change if from no to yes )
-
-vi PasswordAuthentication yes  /etc/ssh/sshd_config
- and PermitRootLogin yes
- 
- systemctl reload sshd
- 
- [root@master ~]# ssh ec2-user@192.168.56.116 "hostname" ---> test the SSH connection  again
-root@192.168.56.116's password:
-node1
- 
-
