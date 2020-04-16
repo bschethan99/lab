@@ -82,3 +82,34 @@ node1
 root
 
 
+=========  copy =============
+ansible all -m copy -a "content=testing dest=/tmp/data" --user ec2-user --ask-pass   ----> create a new file using ec2-user
+
+[root@node1 ~]# cat /tmp/data    ---> check the file is created in node1 
+testing
+
+[root@node1 ~]# ls -l /tmp/data         -------------> check the user and group 
+-rw-r--r--. 1 ec2-user wheel 7 Apr 16 14:39 /tmp/data
+
+[root@node1 ~]# rm -rf  /tmp/data   --> delete the file
+
+
+ansible all -m copy -a "content=testing dest=/tmp/data" --user ec2-user --ask-pass --become-method=sudo --become-user=root --become  --> method is sudo
+
+[root@node1 ~]# cat /tmp/data    ---> check the file is created in node1 
+testing
+
+[root@node1 ~]# ls -l /tmp/data         -------------> check the user and group 
+-rw-r--r--. 1 root root 7 Apr 16 14:39 /tmp/data
+
+[root@node1 ~]# rm -rf  /tmp/data   --> delete the file
+
+[root@node1 ~]# useradd admin  --> create user for testing in node1 
+
+ansible all -m copy -a "content=testing dest=/tmp/data owner=admin group=wheel" --user ec2-user --ask-pass --become-method=sudo --become-user=root --become  --> create file using different account
+
+[root@node1 ~]# ls -l /tmp/data --------------> check the user name is admin 
+-rw-r--r--. 1 admin wheel 7 Apr 16 14:45 /tmp/data
+[root@node1 ~]#
+
+
