@@ -26,4 +26,9 @@ vim /etc/sudoers
 
 usermod -g wheel ec2-user --> run on all the servers 
 
+sudo yum install ansible ---> run only on master 
+
+ansible --version ---> check the version
+
 ansible localhost -m ping  --> test the connection 
+
