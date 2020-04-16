@@ -57,3 +57,28 @@ sudo vi /etc/ansible/hosts  --> create a group in inventory file
 ansible web  -m ping --user ec2-user --ask-pass               ---> web group
 ansible db  -m ping --user ec2-user --ask-pass                ---> db group
 ansible backup  -m ping --user ec2-user --ask-pass	          ---> backup group
+
+
+======= checking user ID and sudo access ====
+
+
+ansible all -m shell -a "hostname; whoami" --user ec2-user --ask-pass   ---> check the hostname and user is ec2-user
+192.168.56.117 | SUCCESS | rc=0 >>
+node2
+ec2-user
+
+192.168.56.116 | SUCCESS | rc=0 >>
+node1
+ec2-user
+
+
+ansible all -m shell -a "hostname; whoami" --user ec2-user --ask-pass --become-method=sudo --become-user=root --become   ---> check the sudo access
+192.168.56.117 | SUCCESS | rc=0 >>
+node2
+root
+
+192.168.56.116 | SUCCESS | rc=0 >>
+node1
+root
+
+
