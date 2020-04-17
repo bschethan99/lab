@@ -1,6 +1,5 @@
 hostname
 whoami
 pwd
-ls -lrt
-uptime
 echo $1
+echo $2
