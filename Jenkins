@@ -1,0 +1,29 @@
+
+https://jenkins.io/download/   --> go to this link for download
+
+select Red-Hat Cent-OS verstion 
+
+sudo yum install wget -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo   --->  config repo on jenkins-master
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key  --->  gpg key file install
+
+sudo yum install java -y ---> make sure java pkg is installed 
+sudo yum install jenkins  -y    --> install jenkins
+
+sudo systemctl start jenkins  --> start the jenkins service
+sudo systemctl enable jenkins  --> enable the service on reboot
+
+ls -l /var/lib/jenkins/   --> default path of jenkins FYI
+
+vi /etc/sysconfig/jenkins ---> main config for jenkins FYI
+
+http://192.168.56.116:8080/ ---> browse from UI
+
+ cat /var/lib/jenkins/secrets/initialAdminPassword  --> password file
+ 
+ retry is selected plugins are failed 
+  Create First Admin User --> jenkins and password jenkins@123
+  
+  continue and save
+  
+  start using jenkins 
