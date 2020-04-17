@@ -3,4 +3,4 @@ whoami
 pwd
 ls -lrt
 uptime
-ps -ef
+echo $1
