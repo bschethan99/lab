@@ -20,7 +20,7 @@
 
   - name: copy data
     copy:
-      content: Apache page from host {{ ansible_hostname }} and IP is {{ ansible_enp0s8.ipv4.address }} and kernel ver {{ ansible_kernel }} and Memory sise is {{ ansible_memory_mb.real.total }}
+      content: Apache page from host {{ ansible_hostname }} and kernel ver {{ ansible_kernel }} and Memory sise is {{ ansible_memory_mb.real.total }}
       dest: /var/www/html/index.html
 
   - name: raw command run
@@ -31,4 +31,16 @@
     debug:
       var: shelloutput.stdout_lines
 
+
+  - name: Start service Docker, if not started
+    service:
+      name: docker
+      state: started
+      enabled: yes
+
+  - name: Build Docker file
+    shell: docker build -t img:v1 .
+
+  - name: DockerRun
+    shell: docker run -itd --rm --name=web1 -p 443:80 img:v1
 ...
