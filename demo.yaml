@@ -38,6 +38,13 @@
       state: started
       enabled: yes
 
+  - name: clone the data from git hub
+    git:
+      repo: https://github.com/bschethan99/lab.git
+      dest: /home/ec2-user/
+      version: master
+      force: yes
+
   - name: Build Docker file
     shell: docker build -t img:v1 .
 
